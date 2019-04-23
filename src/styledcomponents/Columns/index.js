@@ -7,18 +7,18 @@ import PropTypes from 'prop-types';
 
 // Styled CSS
 const Container = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: ${props => props.width}px;
-  margin: 0 auto;
+  
 
-  @media (min-width: ${props => props.width}px) {
+  @media (min-width: ${props => props.width}) {
     & > div {
-      flex-basis: ${props => props.colWidth}px;
+      flex-basis: calc((100% - (${props => props.columns - 1}) * ${props => props.gap}px) / ${props => props.columns});
     }
   }
-  @media (max-width: ${props => props.width}px) {
+  @media (max-width: ${props => props.width}) {
     & > div {
       flex-basis: 100%;
     }
@@ -29,19 +29,15 @@ const Container = styled.div`
 export const Columns = (props) => {
   const {
     gap,
-    width,
+    minWidth,
     className,
     children,
   } = props;
 
-  const cnt = React.Children.count(children);
-
-  const colWidth = (width - ((cnt - 1) * gap)) / cnt;
-
   return (
     <Container
-      colWidth={colWidth}
-      width={width}
+      columns={React.Children.count(children)}
+      width={minWidth}
       gap={gap}
       className={className}
     >
@@ -50,17 +46,18 @@ export const Columns = (props) => {
   );
 };
 
+
 // Proptypes
 Columns.propTypes = {
-  width: PropTypes.number,
+  minWidth: PropTypes.string,
   children: PropTypes.node.isRequired,
-  gap: PropTypes.number,
+  gap: PropTypes.string,
   className: PropTypes.string,
 };
 
 Columns.defaultProps = {
-  width: 762,
-  gap: 0,
+  minWidth: '762px',
+  gap: '0',
   className: undefined,
 };
 
