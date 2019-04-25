@@ -53,7 +53,7 @@ Wrapper.propTypes = {
 };
 
 Wrapper.defaultProps = {
-  color: '#ffffff',
+  color: '',
   minWidth: 1024,
   shadow: false,
 };
