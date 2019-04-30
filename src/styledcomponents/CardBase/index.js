@@ -15,6 +15,7 @@ const Content = styled.div`
   min-height: ${height};
   margin: 0 auto;
   overflow: hidden;
+  display:flex;
   ${props => (props.shadow === true
     ? 'box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.3);'
     : '')}

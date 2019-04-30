@@ -8,9 +8,11 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 // Import component
 import Card from '.';
 import BackgrounImage from './BackgroundImage';
+import TextIcon from './TextIcon';
 
 // Import Image
 import BackgrounImageStorybook from '../../assets/Card_BackgroundImage_Storybook.jpg';
+import IconStorybook from '../../assets/Card_Icon_Storybook.png';
 
 // Story
 const stories = storiesOf('Components', module);
@@ -36,6 +38,20 @@ stories.add('Card- BackgrounImage', () => (
     <BackgrounImage
       url={text('Background Image', BackgrounImageStorybook)}
       text="<h3>Card content,<br />image sets the height</h3>"
+    />
+  </Card>
+));
+
+stories.add('Card - Icon', () => (
+  <Card
+    shadow={boolean('Shadow', true)}
+    maxWidth={text('Max width', '620px')}
+    minHeight={text('Min height', '240px')}
+    url={text('Url', 'https://www.google.com/')}
+  >
+    <TextIcon
+      icon={text('Background Image', IconStorybook)}
+      text="<h3>Header</h3><p>paragraph</P>"
     />
   </Card>
 ));
