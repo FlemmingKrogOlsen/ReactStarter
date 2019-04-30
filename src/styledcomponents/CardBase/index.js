@@ -9,18 +9,15 @@ const height = props => (props.minHeight ? props.minHeight : '200px');
 
 // Styled-Component : PageContainer
 const Content = styled.div`
+  border-radius: 7px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: ${height};
+  margin: 0 auto;
+  overflow: hidden;
   ${props => (props.shadow === true
     ? 'box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.3);'
     : '')}
-  border-radius: 7px;
-  box-sizing: border-box;
-
-  width: 100%;
-
-
-  min-height: ${height};
-    padding: 10px;
-    margin: 0 auto;
 `;
 
 const Card = (props) => {
