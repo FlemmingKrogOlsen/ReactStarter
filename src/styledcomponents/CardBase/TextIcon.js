@@ -19,11 +19,13 @@ const IconContainer = styled.div`
   display: flex;
   justify-content:center;
   align-items: center;
+  box-sizing: border-box;
 `;
 
 const TextContainer = styled.div`
   flex:4;
   padding: 10px 0;
+  box-sizing: border-box;
 `;
 
 // Component

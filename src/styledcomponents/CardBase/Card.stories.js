@@ -9,10 +9,12 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import Card from '.';
 import BackgrounImage from './BackgroundImage';
 import TextIcon from './TextIcon';
+import Wide from './wide';
 
 // Import Image
 import BackgrounImageStorybook from '../../assets/Card_BackgroundImage_Storybook.jpg';
 import IconStorybook from '../../assets/Card_Icon_Storybook.png';
+import WideStorybook from '../../assets/Card_wide_Storybook.png';
 
 // Story
 const stories = storiesOf('Components', module);
@@ -28,7 +30,7 @@ stories.add('Card', () => (
   </Card>
 ));
 
-stories.add('Card- BackgrounImage', () => (
+stories.add('Card - BackgrounImage', () => (
   <Card
     shadow={boolean('Shadow', true)}
     maxWidth={text('Max width', '400px')}
@@ -38,6 +40,22 @@ stories.add('Card- BackgrounImage', () => (
     <BackgrounImage
       url={text('Background Image', BackgrounImageStorybook)}
       text="<h3>Card content,<br />image sets the height</h3>"
+    />
+  </Card>
+));
+
+stories.add('Card - Wide', () => (
+  <Card
+    shadow={boolean('Shadow', true)}
+    maxWidth={text('Max width', '1060px')}
+    minHeight={text('Min height', '562px')}
+    url={text('Url', 'https://www.google.com/')}
+  >
+    <Wide
+      icon={text('Background Image', WideStorybook)}
+      text="<h3>Header</h3><p>paragraph</P>"
+      imageRight={boolean('Image on right side', true)}
+      altText={text('Image alt text', 'A11y text')}
     />
   </Card>
 ));

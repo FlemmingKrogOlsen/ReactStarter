@@ -7,6 +7,7 @@ const Container = styled.div`
   ${props => (props.url !== undefined ? 'cursor: pointer' : '')};
   max-width: ${props => (props.maxWidth ? props.maxWidth : '100%')};
   margin: 0 auto;
+  box-sizing: border-box;
 `;
 
 const MyLink = styled.a`
