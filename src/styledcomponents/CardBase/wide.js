@@ -24,7 +24,6 @@ const ImageContainer = styled.div`
 
 const TextContainer = styled.div`
   flex:1;
-  padding: 10px 0;
   box-sizing: border-box;
   padding-left: 10px;
 `;
