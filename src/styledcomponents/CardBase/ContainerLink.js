@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  ${props => (props.url !== undefined ? 'cursor: pointer' : '')};
+  ${props => (props.url !== '' ? 'cursor: pointer' : 'cursor: auto')};
   max-width: ${props => (props.maxWidth ? props.maxWidth : '100%')};
   margin: 0 auto;
   box-sizing: border-box;
@@ -41,8 +41,9 @@ const ContainerLink = (props) => {
       role="button"
       className={className}
       maxWidth={maxWidth}
+      url={url}
     >
-      { url !== undefined ? OnClickUrl(url, children) : children}
+      { url !== '' ? OnClickUrl(url, children) : children}
     </Container>
   );
 };
