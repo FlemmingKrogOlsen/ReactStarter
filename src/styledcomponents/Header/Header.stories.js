@@ -8,14 +8,11 @@ import { withKnobs, text, color } from '@storybook/addon-knobs';
 // Import component
 import Header from '.';
 
-// eslint-disable-next-line no-console
-console.log('Testing console otput');
-
 // Story
 const stories = storiesOf('Components', module);
 stories.addDecorator(withKnobs);
 stories.add('Header', () => (
-  <Header color={color('Header color', '#cecece')}>
-    {text('Header text', 'Header text')}
+  <Header bgcolor={color('Header color', '#888888')} textcolor={color('Text color', '#ffffff')}>
+    <h1>{text('Header text', 'Header text')}</h1>
   </Header>
 ));
