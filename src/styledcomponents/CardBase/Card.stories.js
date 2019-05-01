@@ -39,7 +39,9 @@ stories.add('Card - BackgrounImage', () => (
   >
     <BackgrounImage
       url={text('Background Image', BackgrounImageStorybook)}
-      text="<h3>Card content,<br />image sets the height</h3>"
+      arrow={boolean('Show arrow', true)}
+      header={text('Header text', 'Header text')}
+      text={text('Manchet text', 'Manchet text')}
     />
   </Card>
 ));
@@ -53,12 +55,17 @@ stories.add('Card - Wide', () => (
   >
     <Wide
       icon={text('Background Image', WideStorybook)}
-      text="<h3>Header</h3><p>paragraph</P>"
+      text={text('Text', '<h1>Header</h1><p>paragraph</P>')}
       imageRight={boolean('Image on right side', true)}
       altText={text('Image alt text', 'A11y text')}
     />
   </Card>
-));
+),
+{
+  knobs: {
+    escapeHTML: false,
+  },
+});
 
 stories.add('Card - Icon', () => (
   <Card
@@ -69,8 +76,13 @@ stories.add('Card - Icon', () => (
   >
     <TextIcon
       icon={text('Background Image', IconStorybook)}
-      text="<h1>Header</h1><p>paragraph</P>"
+      text={text('Text', '<h1>Header</h1><p>paragraph</P>')}
       arrow={boolean('Show arrow', true)}
     />
   </Card>
-));
+),
+{
+  knobs: {
+    escapeHTML: false,
+  },
+});
