@@ -44,10 +44,16 @@ const Manchet = styled.p`
 
 // Component
 const BackgroundImage = (props) => {
-  const { url, header, text, arrow } = props;
+  const {
+    url,
+    header,
+    text,
+    arrow,
+    altText,
+  } = props;
   return (
     <Container>
-      <Image src={url === '' ? BackgrounImage : url} />
+      <Image src={url === '' ? BackgrounImage : url} alt={altText} />
       <Text>
         <Header>{header}</Header>
         <Manchet>
@@ -66,12 +72,15 @@ BackgroundImage.propTypes = {
   text: PropTypes.string.isRequired,
   /** Image url */
   url: PropTypes.string,
+  /** Image url */
+  altText: PropTypes.string,
   /** Arrow pointing right */
   arrow: PropTypes.bool,
 };
 
 BackgroundImage.defaultProps = {
   url: BackgrounImage,
+  altText: 'alternate text missing',
   arrow: false,
 };
 

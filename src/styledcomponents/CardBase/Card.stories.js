@@ -3,7 +3,12 @@ import React from 'react';
 
 // Import Storybook modules
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  boolean,
+  object,
+} from '@storybook/addon-knobs';
 
 // Import component
 import Card from '.';
@@ -16,6 +21,7 @@ import BackgrounImageStorybook from '../../assets/Card_BackgroundImage_Storybook
 import IconStorybook from '../../assets/Card_Icon_Storybook.png';
 import WideStorybook from '../../assets/Card_wide_Storybook.png';
 
+
 // Story
 const stories = storiesOf('Components', module);
 stories.addDecorator(withKnobs);
@@ -26,9 +32,14 @@ stories.add('Card', () => (
     minHeight={text('Min height', '200px')}
     url={text('Url', 'https://www.google.com/')}
   >
-    <div style={{ padding: '10px' }}>{text('Card content', 'Card content')}</div>
+    <div style={object('Div style', { padding: '10px' })}>{text('Card content', 'Card content')}</div>
   </Card>
-));
+),
+{
+  knobs: {
+    escapeHTML: false,
+  },
+});
 
 stories.add('Card - BackgrounImage', () => (
   <Card
@@ -39,9 +50,11 @@ stories.add('Card - BackgrounImage', () => (
   >
     <BackgrounImage
       url={text('Background Image', BackgrounImageStorybook)}
+      altText={text('Alternate text for image', 'Image description')}
       arrow={boolean('Show arrow', true)}
       header={text('Header text', 'Header text')}
       text={text('Manchet text', 'Manchet text')}
+
     />
   </Card>
 ));
