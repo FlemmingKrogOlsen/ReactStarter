@@ -70,7 +70,7 @@ stories.add('Card - Icon', () => (
     <TextIcon
       icon={text('Background Image', IconStorybook)}
       text="<h1>Header</h1><p>paragraph</P>"
-      arrow
+      arrow={boolean('Show arrow', true)}
     />
   </Card>
 ));
