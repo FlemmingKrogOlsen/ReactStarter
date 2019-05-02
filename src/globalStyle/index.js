@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
   }
 
   h1 {
@@ -28,6 +29,40 @@ const GlobalStyle = createGlobalStyle`
     }
     @media screen and (min-width: 1280px) {
       font-size: 50px;
+    }
+  }
+
+  h2 {
+    ${common};
+    margin-bottom: 17px;
+    font-weight: 700;
+
+    font-size: 20px;
+    @media screen and (min-width: 768px) {
+      font-size: 24px;
+    }
+    @media screen and (min-width: 1024px) {
+      font-size: 30px;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 35px;
+    }
+  }
+
+  h3 {
+    ${common};
+    line-height: 1.5;
+    font-weight: 700;
+
+    font-size: 14px;
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+    @media screen and (min-width: 1024px) {
+      font-size: 18px;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 20px;
     }
   }
 
