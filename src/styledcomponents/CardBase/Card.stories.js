@@ -15,17 +15,18 @@ import Card from '.';
 import BackgrounImage from './BackgroundImage';
 import TextIcon from './TextIcon';
 import Wide from './wide';
+import InfoIcon from './InfoIcon';
 
 // Import Image
 import BackgrounImageStorybook from '../../assets/Card_BackgroundImage_Storybook.jpg';
 import IconStorybook from '../../assets/Card_Icon_Storybook.png';
 import WideStorybook from '../../assets/Card_wide_Storybook.png';
-
+import InfoCardImage from '../../assets/Card_info_default.png';
 
 // Story
-const stories = storiesOf('Components', module);
+const stories = storiesOf('Components.Card', module);
 stories.addDecorator(withKnobs);
-stories.add('Card', () => (
+stories.add('Card Container', () => (
   <Card
     shadow={boolean('Shadow', true)}
     maxWidth={text('Max width', '420px')}
@@ -41,7 +42,27 @@ stories.add('Card', () => (
   },
 });
 
-stories.add('Card - BackgrounImage', () => (
+stories.add('Icon Card', () => (
+  <Card
+    shadow={boolean('Shadow', true)}
+    maxWidth={text('Max width', '620px')}
+    minHeight={text('Min height', '240px')}
+    url={text('Url', 'https://www.google.com/')}
+  >
+    <TextIcon
+      icon={text('Background Image', IconStorybook)}
+      text={text('Text', '<h1>Header</h1><p>paragraph</P>')}
+      arrow={boolean('Show arrow', true)}
+    />
+  </Card>
+),
+{
+  knobs: {
+    escapeHTML: false,
+  },
+});
+
+stories.add('Image Card', () => (
   <Card
     shadow={boolean('Shadow', true)}
     maxWidth={text('Max width', '400px')}
@@ -59,7 +80,29 @@ stories.add('Card - BackgrounImage', () => (
   </Card>
 ));
 
-stories.add('Card - Wide', () => (
+stories.add('Info Card', () => (
+  <Card
+    shadow={boolean('Shadow', true)}
+    maxWidth={text('Max width', '400px')}
+    minHeight={text('Min height', '200px')}
+    url={text('Url', 'https://www.google.com/')}
+  >
+    <InfoIcon
+      group={text('Group name', 'Group')}
+      text={text('Text', '<h1>Header</h1><p>paragraph</P>')}
+      arrow={boolean('Show arrow', true)}
+      image={text('Background Image', InfoCardImage)}
+      altText={text('Image alt text', 'Image Alternate text')}
+    />
+  </Card>
+),
+{
+  knobs: {
+    escapeHTML: false,
+  },
+});
+
+stories.add('Wide Card', () => (
   <Card
     shadow={boolean('Shadow', true)}
     maxWidth={text('Max width', '1060px')}
@@ -71,26 +114,6 @@ stories.add('Card - Wide', () => (
       text={text('Text', '<h1>Header</h1><p>paragraph</P>')}
       imageRight={boolean('Image on right side', true)}
       altText={text('Image alt text', 'A11y text')}
-    />
-  </Card>
-),
-{
-  knobs: {
-    escapeHTML: false,
-  },
-});
-
-stories.add('Card - Icon', () => (
-  <Card
-    shadow={boolean('Shadow', true)}
-    maxWidth={text('Max width', '620px')}
-    minHeight={text('Min height', '240px')}
-    url={text('Url', 'https://www.google.com/')}
-  >
-    <TextIcon
-      icon={text('Background Image', IconStorybook)}
-      text={text('Text', '<h1>Header</h1><p>paragraph</P>')}
-      arrow={boolean('Show arrow', true)}
     />
   </Card>
 ),
