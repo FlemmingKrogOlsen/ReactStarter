@@ -19,7 +19,7 @@ function loadStories() {
 // Storybook Info Addon
 addDecorator(
   withInfo({
-    header: true,
+    header: false,
     inline: true,
     styles: {
       header: {
