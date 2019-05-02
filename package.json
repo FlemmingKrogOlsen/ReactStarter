@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --config ./webpack/webpack.dev.js --mode development",
     "build": "webpack --config ./webpack/webpack.prod.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -c .storybook -o docs",
     "test": "jest --watchAll"
   },
   "keywords": [],
