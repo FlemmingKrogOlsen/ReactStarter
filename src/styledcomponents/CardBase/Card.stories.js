@@ -32,13 +32,18 @@ const DefaultLayoutDecorator = storyFn => <StoryWrapper>{storyFn()}</StoryWrappe
 
 // Fixed Texts
 const Link = 'https://www.google.com/';
-const LoremHTML = '<h1>orci ac auctor augue</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus id interdum velit laoreet. Enim praesent elementum facilisis leo. Diam maecenas sed enim ut sem viverra aliquet eget.</p>';
+const LoremHTML = '<h2>orci ac auctor augue</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus id interdum velit laoreet. Enim praesent elementum facilisis leo. Diam maecenas sed enim ut sem viverra aliquet eget.</p>';
+const infoLoremHtml = '<h3>orci ac auctor augue</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus id interdum velit laoreet. Enim praesent elementum facilisis leo. Diam maecenas sed enim ut sem viverra aliquet eget.</p>';
+const loremHeader = 'orci ac auctor augue';
+const loremMnachet = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+
 
 // Story
 const stories = storiesOf('Components.Card', module);
 stories.addDecorator(withKnobs);
 stories.addDecorator(DefaultLayoutDecorator);
 
+// Card container story
 stories.add('Card Container', () => (
   <Card
     shadow={boolean('Shadow', true)}
@@ -57,6 +62,7 @@ stories.add('Card Container', () => (
   },
 });
 
+// Icon card story
 stories.add('Icon Card', () => (
   <Card
     shadow={boolean('Shadow', true)}
@@ -78,6 +84,7 @@ stories.add('Icon Card', () => (
   },
 });
 
+// Image card story
 stories.add('Image Card', () => (
   <Card
     shadow={boolean('Shadow', true)}
@@ -90,13 +97,14 @@ stories.add('Image Card', () => (
       url={text('Background Image', BackgrounImageStorybook)}
       altText={text('Alternate text for image', 'Image description')}
       arrow={boolean('Show arrow', true)}
-      header={text('Header text', 'Header text')}
-      text={text('Manchet text', 'Manchet text')}
+      header={text('Header text', loremHeader)}
+      text={text('Manchet text', loremMnachet)}
 
     />
   </Card>
 ));
 
+// Info card story
 stories.add('Info Card', () => (
   <Card
     shadow={boolean('Shadow', true)}
@@ -107,7 +115,7 @@ stories.add('Info Card', () => (
   >
     <InfoIcon
       group={text('Group name', 'Group')}
-      text={text('Text', '<h1>Header</h1><p>paragraph</P>')}
+      text={text('Text', infoLoremHtml)}
       arrow={boolean('Show arrow', true)}
       image={text('Background Image', InfoCardImage)}
       altText={text('Image alt text', 'Image Alternate text')}
@@ -120,6 +128,7 @@ stories.add('Info Card', () => (
   },
 });
 
+// Wide card story
 stories.add('Wide Card', () => (
   <Card
     shadow={boolean('Shadow', true)}
@@ -130,7 +139,7 @@ stories.add('Wide Card', () => (
   >
     <Wide
       icon={text('Background Image', WideStorybook)}
-      text={text('Text', '<h1>Header</h1><p>paragraph</P>')}
+      text={text('Text', LoremHTML)}
       imageRight={boolean('Image on right side', true)}
       altText={text('Image alt text', 'A11y text')}
     />
