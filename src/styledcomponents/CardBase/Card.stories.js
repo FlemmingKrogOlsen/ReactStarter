@@ -20,13 +20,14 @@ import BackgrounImage from './bgImage';
 import TextIcon from './icon';
 import Wide from './wide';
 import InfoIcon from './info';
+import Business from './business';
 
 // Import Image
 import BackgrounImageStorybook from '../../assets/Card_BackgroundImage_Storybook.jpg';
 import IconStorybook from '../../assets/Card_Icon_Storybook.png';
 import WideStorybook from '../../assets/Card_wide_Storybook.png';
 import InfoCardImage from '../../assets/Card_info_default.png';
-
+import ProfileImage from '../../assets/Card_business_storybook.png';
 // Wrapper
 const DefaultLayoutDecorator = storyFn => <StoryWrapper>{storyFn()}</StoryWrapper>;
 
@@ -142,6 +143,31 @@ stories.add('Wide Card', () => (
       text={text('Text', LoremHTML)}
       imageRight={boolean('Image on right side', true)}
       altText={text('Image alt text', 'A11y text')}
+    />
+  </Card>
+),
+{
+  knobs: {
+    escapeHTML: false,
+  },
+});
+
+// Business card story
+stories.add('Business Card', () => (
+  <Card
+    shadow={boolean('Shadow', true)}
+    maxWidth={text('Max width', '290px')}
+    minHeight={text('Min height', '360px')}
+    url={text('Url', '')}
+    bgcolor={color('Background color', '#ffffff')}
+  >
+    <Business
+      image={text('Background Image', ProfileImage)}
+      altText={text('Image alt text', 'Image Alternate text')}
+      name={text('Profile name', 'Profile name')}
+      job={text('Profile job title', 'Profile job title')}
+      tlf={text('Profile phone number', 'xx xx xx xx')}
+      email={text('Profile email address', 'Profile@email.address')}
     />
   </Card>
 ),
