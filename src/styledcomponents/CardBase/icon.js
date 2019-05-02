@@ -17,6 +17,7 @@ const Container = styled.div`
 `;
 
 const IconContainer = styled.div`
+  min-width: 100px;
   flex:1;
   display: flex;
   justify-content:center;
@@ -27,7 +28,7 @@ const IconContainer = styled.div`
 const TextContainer = styled.div`
   flex:4;
   box-sizing: border-box;
-  padding: 20px 10px;
+  padding: 20px 20px 20px 0px;
 `;
 
 const BlueArrow = styled.img`
