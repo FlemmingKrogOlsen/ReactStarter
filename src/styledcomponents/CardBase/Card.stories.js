@@ -12,10 +12,10 @@ import {
 
 // Import component
 import Card from '.';
-import BackgrounImage from './BackgroundImage';
-import TextIcon from './TextIcon';
+import BackgrounImage from './bgImage';
+import TextIcon from './icon';
 import Wide from './wide';
-import InfoIcon from './InfoIcon';
+import InfoIcon from './info';
 
 // Import Image
 import BackgrounImageStorybook from '../../assets/Card_BackgroundImage_Storybook.jpg';
