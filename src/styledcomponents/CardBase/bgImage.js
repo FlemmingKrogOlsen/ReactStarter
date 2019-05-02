@@ -36,7 +36,7 @@ const WhiteArrow = styled.img`
 `;
 
 const Header = styled.h1`
-  font-size: 40px;
+  font-size: 30px;
   padding:0 20px;
 `;
 
