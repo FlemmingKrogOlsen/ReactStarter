@@ -16,6 +16,7 @@ const Content = styled.div`
   margin: 0 auto;
   overflow: hidden;
   display:flex;
+  background-color: ${props => props.bgcolor};
   ${props => (props.shadow === true
     ? 'box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.3);'
     : '')}
@@ -24,6 +25,7 @@ const Content = styled.div`
 const Card = (props) => {
   const {
     children,
+    bgcolor,
     shadow,
     maxWidth,
     minHeight,
@@ -31,7 +33,7 @@ const Card = (props) => {
   } = props;
   return (
     <ContainerLink maxWidth={maxWidth} url={url}>
-      <Content shadow={shadow} minHeight={minHeight}>
+      <Content bgcolor={bgcolor} shadow={shadow} minHeight={minHeight}>
         {children}
       </Content>
     </ContainerLink>
@@ -43,6 +45,8 @@ Card.propTypes = {
 
   /** child nodes */
   children: PropTypes.node.isRequired,
+  /** Card background color */
+  bgcolor: PropTypes.string,
   /** Card Shadow */
   shadow: PropTypes.bool,
   /** Card max width */
@@ -54,6 +58,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
+  bgcolor: '#ffffff',
   shadow: false,
   url: undefined,
 };
