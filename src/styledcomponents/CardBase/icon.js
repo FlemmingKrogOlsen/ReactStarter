@@ -28,7 +28,7 @@ const IconContainer = styled.div`
 const TextContainer = styled.div`
   flex:4;
   box-sizing: border-box;
-  padding: 20px 20px 20px 0px;
+  padding: 0px 20px 20px 0px;
 `;
 
 const BlueArrow = styled.img`
