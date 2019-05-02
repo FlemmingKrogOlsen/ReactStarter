@@ -20,6 +20,7 @@ const Text = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 1px 1px 2px black;
+  width:100%;
 `;
 
 const Image = styled.img`
@@ -34,12 +35,13 @@ const WhiteArrow = styled.img`
   filter: drop-shadow(rgba(0, 0, 0, 0.75) 1px 1px 1px);
 `;
 
-const Header = styled.h2`
-
+const Header = styled.h1`
+  font-size: 40px;
+  padding:0 20px;
 `;
 
 const Manchet = styled.p`
-
+  padding:0 20px;
 `;
 
 // Component
