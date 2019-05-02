@@ -21,6 +21,7 @@ import TextIcon from './icon';
 import Wide from './wide';
 import InfoIcon from './info';
 import Business from './business';
+import News from './news';
 
 // Import Image
 import BackgrounImageStorybook from '../../assets/Card_BackgroundImage_Storybook.jpg';
@@ -28,6 +29,8 @@ import IconStorybook from '../../assets/Card_Icon_Storybook.png';
 import WideStorybook from '../../assets/Card_wide_Storybook.png';
 import InfoCardImage from '../../assets/Card_info_default.png';
 import ProfileImage from '../../assets/Card_business_storybook.png';
+import NewsImage from '../../assets/Card_news_default.png';
+
 // Wrapper
 const DefaultLayoutDecorator = storyFn => <StoryWrapper>{storyFn()}</StoryWrapper>;
 
@@ -168,6 +171,31 @@ stories.add('Business Card', () => (
       job={text('Profile job title', 'Profile job title')}
       tlf={text('Profile phone number', 'xx xx xx xx')}
       email={text('Profile email address', 'Profile@email.address')}
+    />
+  </Card>
+),
+{
+  knobs: {
+    escapeHTML: false,
+  },
+});
+
+// News card story
+stories.add('News Card', () => (
+  <Card
+    shadow={boolean('Shadow', true)}
+    maxWidth={text('Max width', '700px')}
+    minHeight={text('Min height', '150px')}
+    url={text('Url', Link)}
+    bgcolor={color('Background color', '#ffffff')}
+  >
+    <News
+      image={text('Background Image', NewsImage)}
+      header={text('Header text', loremHeader)}
+      manchet={text('Manchet text', loremMnachet)}
+      imageRight={boolean('Image on right side', false)}
+      altText={text('Image alt text', 'A11y text')}
+      timestamp="21.08.2017"
     />
   </Card>
 ),
