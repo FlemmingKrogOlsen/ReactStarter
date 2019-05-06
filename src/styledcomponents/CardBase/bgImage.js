@@ -60,7 +60,7 @@ const BackgroundImage = (props) => {
         <Header>{header}</Header>
         <Manchet>
           {text}
-          {arrow === true ? <WhiteArrow src={Arrow} alt="Arrow right" /> : null}
+          {arrow ? <WhiteArrow src={Arrow} alt="Arrow right" /> : null}
         </Manchet>
       </Text>
     </Container>
