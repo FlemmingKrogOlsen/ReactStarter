@@ -14,7 +14,7 @@ const MyLink = styled.a`
   width: 100%;
   height: 100%;
   text-decoration: none;
-  color:black;
+  color:#464543 !important;
 `;
 
 function OnClickUrl(url, children) {

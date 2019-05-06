@@ -85,6 +85,35 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  a {
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #2aa7e3;
+
+    &:visited {
+      color: #4f4586;
+    }
+
+    &:hover {
+      color: #4291b8;
+    }
+
+    font-size: 12px;
+    @media screen and (min-width: 768px) {
+      font-size: 15px;
+    }
+    @media screen and (min-width: 1024px) {
+      font-size: 15px;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 16px;
+    }
+  }
+
 `;
 
 export default GlobalStyle;
