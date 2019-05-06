@@ -46,10 +46,10 @@ const InfoIcon = (props) => {
   } = props;
   return (
     <Container>
-      {image !== '' ? <Image src={image} alt={altText} /> : null}
-      <Group>{group}</Group>
+      {image ? <Image src={image} alt={altText} /> : null}
+      {group ? <Group>{group}</Group> : null}
       <TextContainer dangerouslySetInnerHTML={{ __html: text }} />
-      {arrow === true ? <BlueArrow src={Arrow} alt="Arrow right" /> : null}
+      {arrow ? <BlueArrow src={Arrow} alt="Arrow right" /> : null}
     </Container>
   );
 };
@@ -68,7 +68,7 @@ InfoIcon.propTypes = {
 };
 
 InfoIcon.defaultProps = {
-  group: '',
+  group: null,
   arrow: false,
   image: '',
   altText: '',
