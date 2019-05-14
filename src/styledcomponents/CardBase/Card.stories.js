@@ -27,9 +27,9 @@ import News from './news';
 import BackgrounImageStorybook from '../../assets/Card_BackgroundImage_Storybook.jpg';
 import IconStorybook from '../../assets/Card_Icon_Storybook.png';
 import WideStorybook from '../../assets/Card_wide_Storybook.png';
-import InfoCardImage from '../../assets/Card_info_default.png';
+import InfoCardImage from '../../assets/Card_info_stroybook.png';
 import ProfileImage from '../../assets/Card_business_storybook.png';
-import NewsImage from '../../assets/Card_news_default.png';
+import NewsImage from '../../assets/Card_news_storybook.png';
 
 // Wrapper
 const DefaultLayoutDecorator = storyFn => <StoryWrapper>{storyFn()}</StoryWrapper>;
@@ -142,7 +142,7 @@ stories.add('Wide Card', () => (
     bgcolor={color('Background color', '#ffffff')}
   >
     <Wide
-      icon={text('Background Image', WideStorybook)}
+      image={text('Background Image', WideStorybook)}
       text={text('Text', LoremHTML)}
       imageRight={boolean('Image on right side', true)}
       altText={text('Image alt text', 'A11y text')}
