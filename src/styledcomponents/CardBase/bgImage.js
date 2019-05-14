@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 // Import Image
-import BackgrounImage from '../../assets/Card_BackgroundImage_Default.jpg';
+import DefaultImage from '../../assets/Card_BackgroundImage_Default.jpg';
 import Arrow from '../../assets/icon_Arrow_Right_White.svg';
 
 // Styled Components
@@ -20,28 +20,28 @@ const Text = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 1px 1px 2px black;
-  width:100%;
+  width: 100%;
 `;
 
 const Image = styled.img`
   width: 100%;
-  display:block;
+  display: block;
 `;
 
 const WhiteArrow = styled.img`
   position: relative;
   top: 3px;
-  margin-left:10px;
+  margin-left: 10px;
   filter: drop-shadow(rgba(0, 0, 0, 0.75) 1px 1px 1px);
 `;
 
 const Header = styled.h1`
   font-size: 30px;
-  padding:0 20px;
+  padding: 0 20px;
 `;
 
 const Manchet = styled.p`
-  padding:0 20px;
+  padding: 0 20px;
 `;
 
 // Component
@@ -55,7 +55,15 @@ const BackgroundImage = (props) => {
   } = props;
   return (
     <Container>
-      <Image src={url === '' ? BackgrounImage : url} alt={altText} />
+      <Image
+        src={url === '' ? DefaultImage : url}
+        alt={altText}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = DefaultImage;
+          e.target.alt = 'Default Image';
+        }}
+      />
       <Text>
         <Header>{header}</Header>
         <Manchet>
@@ -81,7 +89,7 @@ BackgroundImage.propTypes = {
 };
 
 BackgroundImage.defaultProps = {
-  url: BackgrounImage,
+  url: DefaultImage,
   altText: 'alternate text missing',
   arrow: false,
 };

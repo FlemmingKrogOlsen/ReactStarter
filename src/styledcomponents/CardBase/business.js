@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 // Import Node Modules
 import React from 'react';
 import styled, { css } from 'styled-components';
@@ -15,11 +16,10 @@ const common = css`
   line-height: 1.71;
   letter-spacing: normal;
   padding: 0 30px;
-
 `;
 
 const Container = styled.div`
-  position:relative;
+  position: relative;
   box-sizing: border-box;
   flex: 1;
 `;
@@ -50,7 +50,6 @@ const Image = styled.img`
   margin-bottom: 10px;
 `;
 
-
 // Component
 const BusinessCard = (props) => {
   const {
@@ -64,12 +63,21 @@ const BusinessCard = (props) => {
   const mailto = `mailto:${email}`;
   return (
     <Container>
-      <Image src={image === '' ? DefaultProfile : image} alt={altText} />
+      <Image
+        src={image === '' ? DefaultProfile : image}
+        alt={altText}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = DefaultProfile;
+          e.target.alt = 'Default Profile Image';
+        }}
+      />
       <Name role="none">{name}</Name>
       {job !== '' && <Job role="none">{job}</Job>}
       {tlf !== '' && (
-        // eslint-disable-next-line react/jsx-one-expression-per-line
-        <TLF role="none">Telefon: {tlf}</TLF>
+        <TLF role="none">
+          Telefon: {tlf}
+        </TLF>
       )}
       {email !== '' && (
         <Email role="none">

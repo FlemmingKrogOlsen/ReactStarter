@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 // Import Icon
-import Icon from '../../assets/Card_Wide_Default.png';
+import DefaultImage from '../../assets/Card_Wide_Default.png';
 
 // Styled Component
 
@@ -15,19 +15,18 @@ const Container = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  flex:1;
+  flex: 1;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   box-sizing: border-box;
 `;
 
 const TextContainer = styled.div`
-  flex:1;
+  flex: 1;
   box-sizing: border-box;
   padding: 0 40px;
 `;
-
 
 // Component
 const Wide = (props) => {
@@ -38,7 +37,19 @@ const Wide = (props) => {
     altText,
   } = props;
 
-  const ImageSide = <ImageContainer><img src={image === '' ? Icon : image} alt={altText} /></ImageContainer>;
+  const ImageSide = (
+    <ImageContainer>
+      <img
+        src={image === '' ? '' : image}
+        alt={altText}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = DefaultImage;
+          e.target.alt = 'Default Image';
+        }}
+      />
+    </ImageContainer>
+  );
   const TextSide = <TextContainer dangerouslySetInnerHTML={{ __html: text }} />;
 
   return (
@@ -61,7 +72,7 @@ Wide.propTypes = {
 };
 
 Wide.defaultProps = {
-  image: Icon,
+  image: DefaultImage,
   imageRight: true,
   altText: 'Alt text is missing',
 };

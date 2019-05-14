@@ -5,47 +5,47 @@ import PropTypes from 'prop-types';
 
 // Import Icons
 import Arrow from '../../assets/icon_Arrow_Right_Blue.svg';
+import DefaultImage from '../../assets/Card_news_default.png';
 
 // Styled Component
 const Container = styled.div`
   flex: 1;
   display: flex;
   box-sizing: border-box;
-  position:relative;
+  position: relative;
 `;
 
 const ImageContainer = styled.div`
-  flex:1;
+  flex: 1;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   box-sizing: border-box;
-
 `;
 
 const TextContainer = styled.div`
-  flex:3;
+  flex: 3;
   box-sizing: border-box;
   padding: 20px 68px 20px 24px;
 `;
 
 const TimeStamp = styled.p`
-margin:0;
+  margin: 0;
 `;
 
 const Header = styled.h2`
-margin: 5px 0 0 0;
+  margin: 5px 0 0 0;
 
-font-size: 24px;
+  font-size: 24px;
 `;
 
 const Manchet = styled.p`
-margin: 10px 0 0 0;
+  margin: 10px 0 0 0;
 `;
 
 const BlueArrow = styled.img`
   position: absolute;
-  bottom : 20px;
+  bottom: 20px;
   right: 20px;
 `;
 
@@ -61,15 +61,31 @@ const News = (props) => {
     arrow,
   } = props;
 
-  const ImageSide = image !== '' ? <ImageContainer><img src={image} alt={altText} /></ImageContainer> : null;
+  const ImageSide = image !== '' ? (
+    <ImageContainer>
+      <img
+        src={image}
+        alt={altText}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = DefaultImage;
+          e.target.alt = 'Default Image';
+        }}
+      />
+    </ImageContainer>
+  ) : null;
   const TextSide = (
     <TextContainer>
       <TimeStamp className="footnote">{timestamp}</TimeStamp>
       <Header>{header}</Header>
-      <Manchet>
-        {manchet}
-      </Manchet>
-      {arrow === true ? <BlueArrow style={imageRight === true ? { right: '190px' } : null} src={Arrow} alt="Arrow right" /> : null}
+      <Manchet>{manchet}</Manchet>
+      {arrow === true ? (
+        <BlueArrow
+          style={imageRight === true ? { right: '190px' } : null}
+          src={Arrow}
+          alt="Arrow right"
+        />
+      ) : null}
     </TextContainer>
   );
 

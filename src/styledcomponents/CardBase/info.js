@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 
 // Import Icon
 import Arrow from '../../assets/icon_Arrow_Right_Blue.svg';
+import DefaultImage from '../../assets/Card_info_default.png';
 
 // Styled Component
 
 const Container = styled.div`
-  position:relative;
+  position: relative;
   box-sizing: border-box;
   flex: 1;
 `;
@@ -26,14 +27,13 @@ const TextContainer = styled.div`
 
 const BlueArrow = styled.img`
   position: absolute;
-  bottom : 20px;
+  bottom: 20px;
   right: 20px;
 `;
 
 const Image = styled.img`
   max-height: 200px;
 `;
-
 
 // Component
 const InfoIcon = (props) => {
@@ -46,7 +46,17 @@ const InfoIcon = (props) => {
   } = props;
   return (
     <Container>
-      {image ? <Image src={image} alt={altText} /> : null}
+      {image ? (
+        <Image
+          src={image}
+          alt={altText}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = DefaultImage;
+            e.target.alt = 'Default Image';
+          }}
+        />
+      ) : null}
       {group ? <Group>{group}</Group> : null}
       <TextContainer dangerouslySetInnerHTML={{ __html: text }} />
       {arrow ? <BlueArrow src={Arrow} alt="Arrow right" /> : null}
